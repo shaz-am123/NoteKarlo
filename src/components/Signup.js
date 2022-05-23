@@ -27,7 +27,7 @@ export default function Signup(props) {
             });
 
             const json = await response.json()
-            console.log(json);
+            
             setLoading(false);
 
             if (json.success) {

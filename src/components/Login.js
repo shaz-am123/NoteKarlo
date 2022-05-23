@@ -20,9 +20,9 @@ const Login = (props) => {
             body: JSON.stringify({email: credentials.email, password: credentials.password})
         });
         const json = await response.json()
-        console.log(json);
+        const success = json.success;
         setLoading(false)
-        if(json.success)
+        if(success)
         {
             // save auth token and rediret to home
             localStorage.setItem('token', json.authToken)

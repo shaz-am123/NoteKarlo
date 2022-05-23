@@ -4,9 +4,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 export default function Navbar(props) {
     let location = useLocation();
-    React.useEffect(() => {
-        console.log(location.pathname);
-    }, [location]);
+    // React.useEffect(() => {
+    //     console.log(location.pathname);
+    // }, [location]);
 
     let navigate = useNavigate();
     const handleLogout = ()=>{
