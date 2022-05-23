@@ -1,9 +1,13 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Spinner from './Spinner'
+import authContext from "../context/auth/authContext"
 
 export default function Signup(props) {
     const showAlert = props.showAlert
+    const context = useContext(authContext);
+
+    const {eligible_age_check} = context;
     const [credentials, setCredentials] = useState(
         {
             name: "",
@@ -14,32 +18,6 @@ export default function Signup(props) {
             gender: ""
         })
 
-    function eligible_age_check(dob) {
-        var birth_date = new Date(dob);
-        var birth_date_day = birth_date.getDate();
-        var birth_date_month = birth_date.getMonth()
-        var birth_date_year = birth_date.getFullYear();
-
-        var today_date = new Date();
-        var today_day = today_date.getDate();
-        var today_month = today_date.getMonth();
-        var today_year = today_date.getFullYear();
-
-        var age = 0;
-        if (today_month > birth_date_month)
-            age = today_year - birth_date_year;
-        else if (today_month === birth_date_month) {
-            if (today_day >= birth_date_day)
-                age = today_year - birth_date_year;
-            else
-                age = today_year - birth_date_year - 1;
-        }
-        else
-            age = today_year - birth_date_year - 1;
-
-        return age>=3;
-    }
-
     let navigate = useNavigate()
     const [loading, setLoading] = useState(false)
 
@@ -47,8 +25,9 @@ export default function Signup(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
 
+        setLoading(true);
+        
         if (credentials.password !== credentials.cnf_password) {
             showAlert("Password and confirm password fields do not match", "warning")
             setCredentials({
