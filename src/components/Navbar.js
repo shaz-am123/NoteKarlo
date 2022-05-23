@@ -30,6 +30,9 @@ export default function Navbar(props) {
                         <li className="nav-item">
                             <Link className={`nav-link ${location.pathname==='/about'?'active':''}`}  to="/about">{props.about}</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className = {`nav-link ${location.pathname==='/myprofile'?'active':''}`} aria-current="page" to="/myprofile">Profile</Link>
+                        </li>
                         
                     </ul>
                     {localStorage.getItem('token') ? 
