@@ -12,7 +12,7 @@ export default function About() {
           </h2>
           <div id="collapseOne" className="accordion-collapse collapse show"  aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div className="accordion-body" >
-              iNotebook tries to provide its users a reliable and efficient note taking mechanism. Create an account with us and leave your note keeping stress for us. You can save, delete and edit notes on your will.
+              iNotebook tries to provide its users a reliable and efficient note taking platform. Create an account with us and leave your note keeping stress for us. You can save, delete and edit notes on your will.
             </div>
           </div>
         </div>

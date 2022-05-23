@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Spinner from './Spinner'
 
@@ -7,6 +7,8 @@ export default function Signup(props) {
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cnf_password: "" })
     let navigate = useNavigate()
     const [loading, setLoading] = useState(false)
+
+    const ref = useRef(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -27,7 +29,7 @@ export default function Signup(props) {
             });
 
             const json = await response.json()
-            
+
             setLoading(false);
 
             if (json.success) {
@@ -35,6 +37,7 @@ export default function Signup(props) {
                 localStorage.setItem('token', json.authToken)
                 navigate("/")
                 showAlert("Account Created Successfully", "success")
+                ref.current.click();
             }
             else {
                 showAlert("Account couldn't be created due to server issues", "danger")
@@ -45,9 +48,29 @@ export default function Signup(props) {
     const onChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
+    
 
     return (
         <>
+            <button ref={ref}  type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Welcome to iNotebook! We are really glad to have you with us.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {loading && <Spinner />}
             <div className='container my-5'>
                 <h3>Already have an account?</h3>
