@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export default function About() {
   return (
@@ -41,6 +42,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      <Link className="btn btn-primary my-3" to='/signup'>Get started</Link>
     </div>
   )
 }
