@@ -12,7 +12,7 @@ export default function About() {
           </h2>
           <div id="collapseOne" className="accordion-collapse collapse show"  aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div className="accordion-body" >
-              noteKarlo tries to provide its users a reliable and efficient note taking platform. Create an account with us and leave your note keeping stress for us. You can save, delete and edit notes on your will.
+              NoteKarlo tries to provide its users a reliable and efficient note taking platform. Create an account with us and leave your note keeping stress for us. You can save, delete and edit notes on your will.
             </div>
           </div>
         </div>
@@ -24,7 +24,7 @@ export default function About() {
           </h2>
           <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div className="accordion-body"  >
-              noteKarlo has started off as a note taking application, but we aim to grow its services into blogging and sharing thoughts with each other. Users in the future versions will be able to see each others blogs.
+              NoteKarlo has started off as a note taking application, but we aim to grow its services into blogging and sharing thoughts with each other. Users in the future versions will be able to see each others blogs.
             </div>
           </div>
         </div>
