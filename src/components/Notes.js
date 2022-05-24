@@ -33,8 +33,8 @@ const Notes = (props) => {
           })
     }
 
-    const handleClick = (e)=>{ 
-        editNote(note.id, note.e_title, note.e_description, note.e_tag)
+    const handleClick = async (e)=>{ 
+        await editNote(note.id, note.e_title, note.e_description, note.e_tag)
         refClose.current.click();
         showAlert("Successfully updated the note", 'success');
     }

@@ -5,8 +5,8 @@ export default function NoteItem(props) {
     const {deleteNote} = useContext(noteContext);
     const {note, updateNote, showAlert} = props;
 
-    const handleDelete=(id)=>{
-      deleteNote(id);
+    const handleDelete= async (id)=>{
+      await deleteNote(id);
       showAlert("Successfully deleted the note", 'success')
     }
 

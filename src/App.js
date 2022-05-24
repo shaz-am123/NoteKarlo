@@ -35,12 +35,12 @@ function App() {
       <AuthState>
         <NoteState>
           <Router>
-            <Navbar title="iNotebook" about="About" />
+            <Navbar title="noteKarlo" about="About" />
             <Alert style={{ 'height': '30px' }} alert={alert} />
             <div className='container'>
               <Routes>
-                <Route exact path="/" element={<Home showAlert={showAlert} />} />
-                <Route exact path="/about" element={<About />} />
+                <Route exact path="/home" element={<Home showAlert={showAlert} />} />
+                <Route exact path="/" element={<About />} />
                 <Route exact path="/myprofile" element={<Profile />} />
                 <Route exact path="/login" element={<Login showAlert={showAlert} />} />
                 <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />

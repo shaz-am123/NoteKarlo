@@ -3,7 +3,7 @@ import AuthContext from "./authContext";
 
 const AuthState = (props) => {
 
-  const eligible_age_check = (dob)=> {
+  const eligible_age_check = (dob) => {
     var birth_date = new Date(dob);
     var birth_date_day = birth_date.getDate();
     var birth_date_month = birth_date.getMonth()
@@ -30,8 +30,8 @@ const AuthState = (props) => {
   }
 
   return (
-    <AuthContext.Provider value={{eligible_age_check}}>
-        {props.children}
+    <AuthContext.Provider value={{ eligible_age_check }}>
+      {props.children}
     </AuthContext.Provider>)
 }
 

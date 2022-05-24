@@ -18,12 +18,12 @@ export default function AddNote(props) {
   const handleClick= (e)=>{
     e.preventDefault()
     addNote(note.title, note.description, note.tag)
-    showAlert("Successfully added the note", 'success');
     setNote({
       title: "",
       description: "",
       tag: ""
     })
+    showAlert("Successfully added the note", 'success');
   }
   
   return (
