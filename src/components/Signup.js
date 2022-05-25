@@ -2,12 +2,13 @@ import React, { useRef, useState, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Spinner from './Spinner'
 import authContext from "../context/auth/authContext"
+import axios from 'axios'
 
 export default function Signup(props) {
     const showAlert = props.showAlert
     const context = useContext(authContext);
 
-    const {eligible_age_check} = context;
+    const { eligible_age_check } = context;
     const [credentials, setCredentials] = useState(
         {
             name: "",
@@ -27,7 +28,7 @@ export default function Signup(props) {
         e.preventDefault();
 
         setLoading(true);
-        
+
         if (credentials.password !== credentials.cnf_password) {
             showAlert("Password and confirm password fields do not match", "warning")
             setCredentials({
@@ -52,8 +53,7 @@ export default function Signup(props) {
             });
             setLoading(false);
         }
-        else if(!eligible_age_check(credentials.dob))
-        {
+        else if (!eligible_age_check(credentials.dob)) {
             showAlert("Users have to be atleast 3 yrs old", "warning")
             setCredentials({
                 name: credentials.name,
@@ -89,6 +89,16 @@ export default function Signup(props) {
             if (json.success) {
                 // save auth token and rediret to home
                 localStorage.setItem('token', json.authToken)
+                const imgUrl = null
+
+                await fetch("https://notekaro.herokuapp.com/api/dp/addDp", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'auth-token': localStorage.getItem('token')
+                    },
+                });
+                
                 navigate("/home")
                 showAlert("Account Created Successfully", "success")
                 ref.current.click();
@@ -161,10 +171,10 @@ export default function Signup(props) {
                             <label htmlFor="gender" className="form-label">Gender</label>
                             <select className="form-control" value={credentials.gender} onChange={onChange} name="gender" id="gender" required>
                                 <option value="default">--Please choose an option--</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                                <option value="na">Don't want to specify</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                                <option value="Na">Don't want to specify</option>
                             </select>
 
                         </div>
