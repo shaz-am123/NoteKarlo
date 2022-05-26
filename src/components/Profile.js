@@ -10,12 +10,13 @@ export default function Profile() {
     const [imageSelected, setImageSelected] = useState('')
     const uploadImg = (event) => {
 
+        console.log(process.env.REACT_APP_CLOUD_NAME)
         setLoading(true);
         const formData = new FormData()
         formData.append('file', imageSelected)
-        formData.append("upload_preset", process.env.CLOUD_PRESET)
+        formData.append("upload_preset", process.env.REACT_APP_CLOUD_PRESET)
 
-        Axios.post(`https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/image/upload`, formData).then(
+        Axios.post(`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`, formData).then(
             async (response) => {
                 const imgUrl = response.data.secure_url;
                 setProfileImg(imgUrl)
