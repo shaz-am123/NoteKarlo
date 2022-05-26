@@ -44,7 +44,7 @@ const Login = (props) => {
         <>
             {loading && <Spinner />}
             <div className='container my-5'>
-                <h3>New to ₦oteKarlo?</h3>    
+                <h3>New to 🅽oteKarlo?</h3>    
                 <Link className='btn btn btn-primary my-1' to='/signup'>Sign Up</Link>
             </div>
             <div className='container my-3'>

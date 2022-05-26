@@ -35,7 +35,7 @@ function App() {
       <AuthState>
         <NoteState>
           <Router>
-            <Navbar title="₦oteKarlo" about="About" />
+            <Navbar title="🅽oteKarlo" about="About" />
             <Alert style={{ 'height': '30px' }} alert={alert} />
             <div className='container'>
               <Routes>

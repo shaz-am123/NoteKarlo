@@ -123,11 +123,11 @@ export default function Signup(props) {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">₦oteKarlo</h5>
+                            <h5 className="modal-title" id="exampleModalLabel">🅽oteKarlo</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            Welcome to ₦oteKarlo! We are really glad to have you with us.
+                            Welcome to 🅽oteKarlo! We are really glad to have you with us.
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Get Started</button>
@@ -142,7 +142,7 @@ export default function Signup(props) {
             </div>
             <div className='container my-5' style={{ "height": "80%" }}>
                 <form>
-                    <h1 style={{ 'margin': '2% 0' }}>SignUp to Begin Using ₦oteKarlo</h1>
+                    <h1 style={{ 'margin': '2% 0' }}>SignUp to Begin Using 🅽oteKarlo</h1>
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Full Name</label>
                         <input type="text" className="form-control" value={credentials.name} onChange={onChange} id="name" name="name" minLength={3} required />

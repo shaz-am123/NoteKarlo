@@ -5,3 +5,17 @@
 .far{
   cursor: pointer;
 }
+
+::-webkit-file-upload-button{
+  color: white;
+  background-color: black;
+  padding: auto;
+  border: none;
+  border-radius: 10%;
+  outline: none;
+  
+}
+
+::-webkit-file-upload-button:hover{
+  background-color:  grey;
+}
