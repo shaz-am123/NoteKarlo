@@ -2,18 +2,16 @@ import NoteContext from "./noteContext";
 import {useState} from "react";
 
 const NoteState = (props)=>{
-  const host = "https://notekaro.herokuapp.com/api/notes"
+  const host = process.env.REACT_APP_BACKEND_URL+"/api/note";
     const [notes, setNotes] = useState([]);
 
-    //Fetch all notes, LOGIN REQUIRED
     const fetchNotes = async ()=>{
-      //TODO API CALL;
-        const url = `${host}/fetchnotes`
+        const url = `${host}/fetchNotes`
         const response = await fetch(url, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'auth-token': localStorage.getItem('token')
+            'auth-token': localStorage.getItem('auth-token')
           },
            
         });
@@ -21,15 +19,13 @@ const NoteState = (props)=>{
         setNotes(json)
     }
 
-    //ADD a note, LOGIN REQUIRED
     const addNote = async (title, description, tag)=>{
-      //TODO API CALL;
-        const url = `${host}/addnotes`
+        const url = `${host}/addNote`
         const response = await fetch(url, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'auth-token': localStorage.getItem('token')
+            'auth-token': localStorage.getItem('auth-token')
           },
           body: JSON.stringify({title, description, tag}) 
         });
@@ -40,25 +36,22 @@ const NoteState = (props)=>{
       
     }
 
-    //edit a note, LOGIN REQUIRED
     const editNote= async(id, title, description, tag)=>{
 
-      //TODO API CALL;
-        const url = `${host}/updatenotes/${id}`
+        const url = `${host}/updateNote/${id}`
         const response = await fetch(url, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
-            'auth-token': localStorage.getItem('token')
+            'auth-token': localStorage.getItem('auth-token')
           },
           body: JSON.stringify({title, description, tag}) 
         });
 
-        const json = await response.json();
+        await response.json();
         
       
         let newNotes = JSON.parse(JSON.stringify(notes))
-        // Logic to edit in client
         for (let index = 0; index < newNotes.length; index++) {
           const element = newNotes[index];
           if (element._id === id) {
@@ -72,21 +65,19 @@ const NoteState = (props)=>{
       
     }
 
-    //DELETE a note, LOGIN REQUIRED
     const deleteNote = async (id)=>{
       
-      //TODO API CALL;
-        const url = `${host}/deletenotes/${id}`
+        const url = `${host}/deleteNote/${id}`
         const response = await fetch(url, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
-            'auth-token': localStorage.getItem('token')
+            'auth-token': localStorage.getItem('auth-token')
           },
           
         });
 
-        const json = await response.json();
+        await response.json();
 
         const newNotes = notes.filter((note) => { return note._id !== id })
         setNotes(newNotes)
