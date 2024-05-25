@@ -4,13 +4,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 export default function Navbar(props) {
     let location = useLocation();
-    // React.useEffect(() => {
-    //     console.log(location.pathname);
-    // }, [location]);
 
     let navigate = useNavigate();
     const handleLogout = () => {
-        localStorage.removeItem('token')
+        localStorage.removeItem('auth-token')
         navigate('/login')
     }
 
@@ -25,13 +22,10 @@ export default function Navbar(props) {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             {
-                                localStorage.getItem('token') &&
+                                localStorage.getItem('auth-token') &&
                                 <>
                                     <li className="nav-item">
                                         <Link className={`nav-link ${location.pathname === '/home' ? 'active' : ''}`} aria-current="page" to="/home">Home</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link className={`nav-link ${location.pathname === '/myprofile' ? 'active' : ''}`} aria-current="page" to="/myprofile">My Profile</Link>
                                     </li>
                                 </>}
 
@@ -39,7 +33,7 @@ export default function Navbar(props) {
                                 <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} to="/">{props.about}</Link>
                             </li>
                         </ul>
-                        {localStorage.getItem('token') ?
+                        {localStorage.getItem('auth-token') ?
                             <button type='button' className='btn btn-light mx-2' onClick={handleLogout}>Logout</button> :
                             <form className="d-flex">
                                 <Link type="button" to="/login" className="btn btn-light mx-2">Login</Link>

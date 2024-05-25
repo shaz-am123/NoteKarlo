@@ -42,7 +42,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <Link className="btn btn-primary my-3" to={localStorage.getItem('token')?'/home':'/signup'}>Get started</Link>
+      <Link className="btn btn-primary my-3" to={localStorage.getItem('auth-token')?'/home':'/signup'}>Get started</Link>
     </div>
   )
 }

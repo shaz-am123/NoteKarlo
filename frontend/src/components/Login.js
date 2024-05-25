@@ -12,7 +12,7 @@ const Login = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        const response = await fetch("https://notekaro.herokuapp.com/api/auth/login", {
+        const response = await fetch(process.env.REACT_APP_BACKEND_URL+"/api/auth/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -24,8 +24,7 @@ const Login = (props) => {
         setLoading(false)
         if(success)
         {
-            // save auth token and rediret to home
-            localStorage.setItem('token', json.authToken)
+            localStorage.setItem('auth-token', json.authToken)
             navigate("/home")
             showAlert("Logged in Successfully", "success")
         }

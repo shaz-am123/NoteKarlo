@@ -12,7 +12,6 @@ import {
 } from "react-router-dom";
 import NoteState from './context/notes/noteState'
 import Alert from './components/Alert';
-import Profile from './components/Profile.js';
 import AuthState from './context/auth/authState';
 
 
@@ -41,7 +40,6 @@ function App() {
               <Routes>
                 <Route exact path="/home" element={<Home showAlert={showAlert} />} />
                 <Route exact path="/" element={<About />} />
-                <Route exact path="/myprofile" element={<Profile />} />
                 <Route exact path="/login" element={<Login showAlert={showAlert} />} />
                 <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
               </Routes>

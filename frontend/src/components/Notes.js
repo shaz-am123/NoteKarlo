@@ -10,7 +10,7 @@ const Notes = (props) => {
 
     const navigate = useNavigate();
     useEffect(() => {
-        if(localStorage.getItem('token')){
+        if(localStorage.getItem('auth-token')){
             fetchNotes()
         }
         else{
