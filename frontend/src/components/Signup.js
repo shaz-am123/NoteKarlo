@@ -2,7 +2,6 @@ import React, { useRef, useState, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Spinner from './Spinner'
 import authContext from "../context/auth/authContext"
-import axios from 'axios'
 
 export default function Signup(props) {
     const showAlert = props.showAlert
@@ -67,7 +66,7 @@ export default function Signup(props) {
         }
         else {
             e.preventDefault();
-            const response = await fetch("https://notekaro.herokuapp.com/api/auth/signup", {
+            const response = await fetch(process.env.REACT_APP_BACKEND_URL+"/api/auth/signup", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -87,23 +86,17 @@ export default function Signup(props) {
             setLoading(false);
 
             if (json.success) {
-                // save auth token and rediret to home
-                localStorage.setItem('token', json.authToken)
-                const imgUrl = null
-
-                await fetch("https://notekaro.herokuapp.com/api/dp/addDp", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'auth-token': localStorage.getItem('token')
-                    },
-                });
+                localStorage.setItem('auth-token', json.authToken)
                 
                 navigate("/home")
                 showAlert("Account Created Successfully", "success")
                 ref.current.click();
             }
             else {
+                if(json.error) {
+                    showAlert(json.error, "danger");
+                    return;
+                }
                 showAlert("Account couldn't be created due to server issues", "danger")
             }
         }
