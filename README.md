@@ -1,17 +1,15 @@
-
 # NoteKarlo
 
 A platform where users can make, store and edit notes efficiently.
 
-
-
-
 ## Deployment
 
 To deploy this project run
+
 - Git clone this app
 
 - Install the npm packages by running the following command
+
 ```bash
   npm install
 ```
@@ -19,13 +17,14 @@ To deploy this project run
 - Create a dotenv file and add the configuration variables
 
 - To start the application on local server run the command
+
 ```bash
   npm start
 ```
+
 View the web application on http://localhost:3000/
 
-View the deployed heroku app on https://notekarlo.herokuapp.com/
-
+View the deployed app on http://15.206.69.234/
 
 ## Screenshots
 
@@ -42,14 +41,6 @@ View the deployed heroku app on https://notekarlo.herokuapp.com/
 
 ![image](https://user-images.githubusercontent.com/67041961/185890653-3d915ed5-e7db-42cb-9f11-408fc742e757.png)
 
-
-- User Profile
-
-![image](https://user-images.githubusercontent.com/67041961/185890483-0c74b956-68c0-4fdc-9a4e-70e3e1601c3a.png)
-  
-
 ## Developer
+
 - [Shubham Prasad](https://github.com/shaz-am123)
-
-
-
