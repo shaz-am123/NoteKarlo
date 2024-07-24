@@ -2,29 +2,49 @@
 
 A platform where users can make, store and edit notes efficiently.
 
-## Deployment
+## Features
 
-To deploy this project run
+- User authentication: register, login
+- Notes: create, update, view, delete
 
-- Git clone this app
+### Local Setup
 
-- Install the npm packages by running the following command
-
+1. Clone the repository:
 ```bash
-  npm install
+git clone https://github.com/shaz-am123/NoteKarlo.git notekarlo
 ```
 
-- Create a dotenv file and add the configuration variables
-
-- To start the application on local server run the command
-
+### Backend
+2. Navigate to the project directory
 ```bash
-  npm start
+cd notekarlo/backend
+```
+3. Install npm packages
+```bash
+npm install
+```
+5. Start the backend server:
+```bash
+npm start
 ```
 
-View the web application on http://localhost:3000/
+### Frontend
+6. Navigate to the project directory
+```bash
+cd notekarlo/frontend
+```
+7. Install npm packages
+```bash
+npm install
+```
+8. Start the frontend server:
+```bash
+npm run dev
+```
 
-View the deployed app on http://15.206.69.234/
+### Browser
+9. Open any browser of your choice
+10. View the web application on http://localhost:3000/
 
 ## Screenshots
 
